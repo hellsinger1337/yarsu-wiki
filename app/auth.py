@@ -86,7 +86,7 @@ def send_verification_email(email: str, token: str):
     print(settings.yandex_smtp_port)
     print(settings.yandex_email)
 
-    verification_url = f"http://127.0.0.1:8000/auth/verify-email?email={email}&token={token}"
+    verification_url = f"https://hellsinger1337-yarsu-wiki-0893.twc1.net/auth/verify-email?email={email}&token={token}"
     html_content = f"""
     <html>
     <body>
@@ -127,7 +127,7 @@ def send_reset_password_email(email: str, token: str):
     smtp_username = settings.yandex_email
     smtp_password = settings.yandex_password
 
-    reset_url = f"http://127.0.0.1:8000/auth/reset-password?token={token}"
+    reset_url = f"https://hellsinger1337-yarsu-wiki-0893.twc1.net/auth/reset-password?token={token}"
     html_content = f"""
     <html>
     <body>
