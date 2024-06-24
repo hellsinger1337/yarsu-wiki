@@ -1,0 +1,7 @@
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
+
+from .user import User
+from .teacher import Teacher, TeacherRating
+from .comment import Comment

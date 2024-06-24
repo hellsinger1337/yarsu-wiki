@@ -1,10 +1,12 @@
 from logging.config import fileConfig
-
+import os
+import sys
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
-from app.models.user import Base  # Импортируйте все ваши модели
+sys.path.append(os.path.abspath(os.getcwd()))
+from app.models import Base
 from app.config import settings
 
 

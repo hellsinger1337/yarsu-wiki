@@ -1,14 +1,15 @@
-from fastapi import APIRouter, Depends, HTTPException, status, Request, Form
+from fastapi import APIRouter, Depends, HTTPException, status, Request, Form, Body
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 from datetime import timedelta
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
+from ..auth import get_current_user
 
 from .. import auth
 from ..database import get_db
 from ..models.user import User
-from ..schemas.user import UserCreate, User as UserSchema, Token, UserVerification, PasswordResetRequest, PasswordReset
+from ..schemas.user import UserCreate, User as UserSchema, Token, UserVerification, PasswordResetRequest, PasswordReset, UserProfileUpdate
 
 router = APIRouter()
 templates = Jinja2Templates(directory="app/templates")
@@ -83,3 +84,20 @@ async def reset_password(token: str = Form(...), new_password: str = Form(...), 
 @router.get("/reset-password", response_class=HTMLResponse)
 async def reset_password_form(request: Request, token: str):
     return templates.TemplateResponse("reset_password.html", {"request": request, "token": token})
+
+@router.put("/profile", response_model=UserSchema)
+async def update_profile(
+    new_username: str = Body(..., alias="new_username"),
+    new_photo: str = Body(..., alias="new_photo"),
+    db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user)
+):
+    if new_username:
+        current_user.username = new_username
+        db.commit()
+    if new_photo:
+        current_user.avatar = new_photo
+        db.commit()
+    db.commit()
+    db.refresh(current_user)
+    return current_user

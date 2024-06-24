@@ -36,3 +36,7 @@ class PasswordResetRequest(BaseModel):
 class PasswordReset(BaseModel):
     token: str
     new_password: str
+
+class UserProfileUpdate(BaseModel):
+    new_username: Optional[str]
+    new_photo: Optional[str]
