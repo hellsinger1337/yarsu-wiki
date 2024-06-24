@@ -16,5 +16,4 @@ venv/
 # PyCharm
 .idea/
 
-# Environment variables
-.env
+
