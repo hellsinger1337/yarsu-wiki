@@ -7,7 +7,7 @@ app = FastAPI()
 GITHUB_API_URL = "https://api.github.com"
 FRONTEND_REPO = "hellsinger1337/zzzzzzzzz"
 BACKEND_REPO = "hellsinger1337/yarsu-wiki"
-GITHUB_TOKEN = "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"  
+GITHUB_TOKEN = "Z2hwX1R3aXlxd1FxaG9FdGFhb3VtTzE2OUVMRmR0cjE5azBOd3duNw=="  
 
 class Commit(BaseModel):
     title: str
