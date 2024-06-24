@@ -29,10 +29,10 @@ async def clear_database(db: Session = Depends(get_db)):
 
 @router.get("/commits/frontend", response_model=list[Commit])
 def get_frontend_commits():
-    since = datetime(2024, 6, 24, 10, 00)
+    since = datetime(2024, 6, 24, 12, 00)
     return get_commits(FRONTEND_REPO, since)
 
 @router.get("/commits/backend", response_model=list[Commit])
 def get_backend_commits():
-    since = datetime(2024, 6, 24, 10, 00)
+    since = datetime(2024, 6, 24, 12, 00)
     return get_commits(BACKEND_REPO, since)
