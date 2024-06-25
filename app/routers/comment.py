@@ -1,10 +1,12 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from app import models, schemas, auth
+from app import models, schemas
 from app.database import get_db
 from typing import List
 import datetime
-from ..models.user import User
+
+from app.service import auth
+
 router = APIRouter()
 
 @router.post("/comments", response_model=schemas.Comment)

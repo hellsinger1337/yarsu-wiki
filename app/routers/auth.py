@@ -4,12 +4,11 @@ from sqlalchemy.orm import Session
 from datetime import timedelta
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
-from ..auth import get_current_user
-
-from .. import auth
-from ..database import get_db
-from ..models.user import User
-from ..schemas.user import UserCreate, User as UserSchema, Token, UserVerification, PasswordResetRequest, PasswordReset, UserProfileUpdate
+from app.service.auth import get_current_user
+from app.service import auth
+from app.database import get_db
+from app.models.user import User
+from app.schemas.user import UserCreate, User as UserSchema, Token, UserVerification, PasswordResetRequest, PasswordReset, UserProfileUpdate
 
 router = APIRouter()
 templates = Jinja2Templates(directory="app/templates")

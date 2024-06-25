@@ -5,11 +5,10 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
-from .database import get_db
-from .models.user import User
-from .schemas.user import TokenData
-import requests
-from .config import settings
+from app.database import get_db
+from app.models.user import User
+from app.schemas.user import TokenData
+from app.config import settings
 import random
 import string
 import smtplib
@@ -17,7 +16,6 @@ import hashlib
 import os
 from email.mime.text import MIMEText
 
-# Конфигурация для JWT
 SECRET_KEY = "your_secret_key"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30000000

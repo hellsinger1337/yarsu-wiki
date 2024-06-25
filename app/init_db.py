@@ -1,6 +1,6 @@
-from .database import Base, engine
+from app.database import Base, engine
 from sqlalchemy.orm import Session
-from .models.user import User
+from app.models.user import User
 
 def init_db():
     Base.metadata.create_all(bind=engine)

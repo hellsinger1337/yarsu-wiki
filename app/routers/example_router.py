@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from ..database import get_db
-from ..models.user import User
-from ..init_db import clear_users_table
-from .. import models
-from ..service.commits import get_commits, FRONTEND_REPO, BACKEND_REPO, Commit
+from app.database import get_db
+from app.models.user import User
+from app.init_db import clear_users_table
+from app import models
+from app.service.commits import get_commits, FRONTEND_REPO, BACKEND_REPO, Commit
 from datetime import datetime
 router = APIRouter()
 
