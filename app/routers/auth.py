@@ -6,7 +6,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from app.service.auth import get_current_user
 from app.service import auth
-from app.database import get_db
+from app.db.database import get_db
 from app.models.user import User
 from app.schemas.user import UserCreate, User as UserSchema, Token, UserVerification, PasswordResetRequest, PasswordReset, UserProfileUpdate
 
