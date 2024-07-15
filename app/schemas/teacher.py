@@ -38,3 +38,22 @@ class TeacherRating(TeacherRatingBase):
 
     class Config:
         orm_mode = True
+
+class TeacherRequestBase(BaseModel):
+    name: str
+    photo: str
+    alma_mater: str
+    degree: str
+    positions: str
+    biography: str
+
+class TeacherRequestCreate(TeacherRequestBase):
+    user_id: int
+
+class TeacherRequest(TeacherRequestBase):
+    id: int
+    user_id: int
+    is_approved: bool
+
+    class Config:
+        orm_mode = True

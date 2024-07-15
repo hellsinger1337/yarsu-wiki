@@ -6,6 +6,7 @@ class UserBase(BaseModel):
     email: EmailStr
     avatar: Optional[str] = None
     is_email_verified: bool = False
+    is_admin: bool = False
 
 class UserCreate(UserBase):
     password: str

@@ -11,5 +11,6 @@ class User(Base):
     hashed_password = Column(String)
     avatar = Column(String, nullable=True)
     is_email_verified = Column(Boolean, default=False)
+    is_admin = Column(Boolean, default=False)
     verification_token = Column(String, nullable=True) 
     reset_password_token = Column(String, nullable=True) 

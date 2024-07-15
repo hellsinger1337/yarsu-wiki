@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, ForeignKey
+from sqlalchemy import Column, Integer, String, Float, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
 from . import Base
 
@@ -27,3 +27,16 @@ class TeacherRating(Base):
     teaching_skill_rating = Column(Float)
     communication_rating = Column(Float)
     easiness_rating = Column(Float)
+
+class TeacherRequest(Base):
+    __tablename__ = "teacher_requests"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String)
+    photo = Column(String)
+    alma_mater = Column(String)
+    degree = Column(String)
+    positions = Column(String)
+    biography = Column(String)
+    user_id = Column(Integer)
+    is_approved = Column(Boolean, default=False)
